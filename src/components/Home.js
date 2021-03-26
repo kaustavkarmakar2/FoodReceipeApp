@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import Recipe from "./Recipe";
 import Alert from "./Alert";
 import Button from '@material-ui/core/Button';
-import Input from '@material-ui/core/input'
+import Input from '@material-ui/core/Input'
   
 
   
