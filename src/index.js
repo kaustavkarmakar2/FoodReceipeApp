@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+// import { Provider } from 'react-redux'
+// import { createStore } from 'redux'
 
 
-import {addUser} from './redux/actionCreator.js'
+// import {addUser} from './redux/actionCreator.js'
 
 // const store = createStore()
 // const rootReducer = combineReducers({
