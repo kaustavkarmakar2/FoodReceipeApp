@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-import Axios from "axios";
-import { v4 as uuidv4 } from "uuid";
-import Recipe from "./components/Recipe";
-import Alert from "./components/Alert";
+
+
 import UserReceipeAdd from "./components/UserReceipeAdd";
 import Home from "./components/Home"
 import {
-  BrowserRouter, Switch, Route,Router,
+  BrowserRouter, Switch, Route,
   Link
 } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
