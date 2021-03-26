@@ -16,7 +16,7 @@ function Home(){
   const APP_ID = "cb6f82d7";
   const APP_KEY = "4180124fa98374ad33f63020cbc2030b";
 
-  const recipesinArray=[{name:"Biriyani"},{name:"Chowmin"}];
+  const recipesinArray=[{name:"Biriyani",ingreditant:"Rice",cook:"Boil Rice"},{name:"Chowmin",ingreditant:"Wheat",cook:"Boil Wheat"}];
 
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
@@ -58,7 +58,7 @@ function Home(){
           <div className="recipes">
             {recipes !== [] &&
               recipes.map(recipe => <Recipe key={uuidv4()} recipe={recipe} />)}
-            {recipesinArray.map(recipe=><ul key={uuidv4()} style={{color:'Red',weight:'200px'}}><li>{recipe.name}</li></ul>)}
+            {recipesinArray.map(recipe=><ul key={uuidv4()} style={{color:'Red',weight:'200px'}} className="recipe"><li>Name:{recipe.name}</li><li>Ingreditant:{recipe.ingreditant}</li><li>Steps to cook:{recipe.cook}</li></ul>)}
           </div>
         </div>
     )
