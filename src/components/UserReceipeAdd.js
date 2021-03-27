@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
+import noteActions from '../redux/actions/noteActions';
+import inputActions from '../redux/actions/inputActions';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -16,12 +20,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 function UserReceipeAdd() {
     const classes = useStyles();
+
+    // const id = useSelector(state => state.inputs.id);
+    const title = useSelector(state => state.inputs.title);
+    const content = useSelector(state => state.inputs.content);
+    const dispatch = useDispatch();
+    const addNote = () => {
+      if(title && content) {
+        dispatch(noteActions.addNote({
+          title,
+          content
+        }))
+        dispatch(inputActions.resetInputs())
+      }
+    }
     return (
         <div className="bordersA">
             <FormControl className={classes.margin}>
         <InputLabel htmlFor="input-with-icon-adornment">Name of dish</InputLabel>
         <Input
           id="input-with-icon-adornment"
+          value={title}
+          onChange={e => 
+            dispatch(inputActions.setInputTitle(e.target.value))
+          }
           startAdornment={
             <InputAdornment position="start">
               <AccountCircle />
@@ -29,7 +51,10 @@ function UserReceipeAdd() {
           }
         />
         <TextField
-        
+        value={content}
+        onChange={e => 
+          dispatch(inputActions.setInputContent(e.target.value))
+        }
         id="input-with-icon-textfield"
         label="Steps To cook"
         InputProps={{
@@ -64,7 +89,7 @@ function UserReceipeAdd() {
             <TextField id="input-with-icon-grid" label="Ingredient name" />
           </Grid>
             <Grid item>
-              <Button style={{color:'Green',backgrondColor:'Blue'}}>ADD</Button>
+              <Button style={{color:'Green',backgrondColor:'Blue'}} onClick={ addNote}>ADD</Button>
             </Grid>
         </Grid>
       </div>

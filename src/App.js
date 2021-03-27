@@ -2,6 +2,10 @@ import React from "react";
 import "./App.css";
 
 
+
+import { Provider } from 'react-redux';
+import store from './redux/createStore';
+
 import UserReceipeAdd from "./components/UserReceipeAdd";
 import Home from "./components/Home"
 import {
@@ -32,30 +36,34 @@ function App() {
 const classes = useStyles();
 
   return (
+    <Provider store={store}>
     <BrowserRouter>
-    <div className="App">
-      <AppBar position="static">
-      <Toolbar>
-    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-      <MenuIcon />
-    </IconButton>
-    <Typography variant="h6" className={classes.title}>
-      <div className="backgroundColor">
-        <Link to='/'>Food</Link>
+    
+      <div className="App">
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" className={classes.title}>
+              <div className="backgroundColor">
+                <Link to='/'>Food</Link>
+              </div>
+              <div>
+                <Link to='/user'>User</Link>
+              </div>
+            </Typography>
+          </Toolbar>
+        </AppBar>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/user" component={UserReceipeAdd} />
+          </Switch> 
+        
       </div>
-      <div>
-        <Link to='/user'>User</Link>
-      </div>
-    </Typography>
-  </Toolbar>
-      </AppBar>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/user" component={UserReceipeAdd} />
-        </Switch> 
-      
-      </div>
+    
   </BrowserRouter>
+  </Provider>
     
   );
 }
