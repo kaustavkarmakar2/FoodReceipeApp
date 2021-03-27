@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 const SimpleForm = (props) => {
   const  handleSubmit = ()=>{console.log("hiii")}
   return (
-    <form onSubmit={handleSubmit} >
+    <form onSubmit={handleSubmit()} >
       <div>
         <label>Name of dish</label>
         <div>
