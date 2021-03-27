@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form'
 import Button from '@material-ui/core/Button';
 
 const SimpleForm = (props) => {
-  const { handleSubmit } = props
+  const  handleSubmit = ()=>{console.log("hiii")}
   return (
     <form onSubmit={handleSubmit} >
       <div>
